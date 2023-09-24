@@ -16,7 +16,11 @@ Directory structure for a modular Nextflow pipeline:
 - `main.nf`: nextflow main entry script
 - `nextflow.config`: nextflow config file
 
-## Actions
+## Requirements
+
+`Conda` or `Mamba` installation.
+
+## Local setup
 
 Clone directory for environment setup:
 
@@ -34,6 +38,20 @@ Run the Nextflow with the `test` profile:
 
 ```
 nextflow run nf-mvp/main.nf -profile test
+```
+
+## Repository execution
+
+With latest `Nextflow` installed:
+
+```
+nextflow run esteinig/nf-mvp -profiles conda,test
+```
+
+With `Mamba` environment installer instead of `Conda`:
+
+```
+nextflow run esteinig/nf-mvp -profiles conda,test --mamba
 ```
 
 ## Tips and tricks
