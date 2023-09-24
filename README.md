@@ -49,13 +49,13 @@ nextflow run nf-mvp/main.nf -profile test
 With latest `Nextflow` installed:
 
 ```
-nextflow run esteinig/nf-mvp -profiles conda,test
+nextflow run esteinig/nf-mvp -profile conda,test
 ```
 
 With `Mamba` environment installer instead of `Conda`:
 
 ```
-nextflow run esteinig/nf-mvp -profiles conda,test --mamba
+nextflow run esteinig/nf-mvp -profile conda,test --mamba
 ```
 
 ## Tips and tricks
