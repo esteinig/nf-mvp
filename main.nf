@@ -2,13 +2,12 @@
 
 /** A minimum viable Nextflow pipeline */
 
-// IO 
-
 params.help  = false;
+params.debug = false;
 params.fastq = "test/*.fq.gz"
 params.fasta = "test/*.fasta"
 params.outdir = "mvp-result"
-params.subsample = [100, 50, 10]
+params.subsample = "100,50,10"
 
 def printHelpAndExit() {
 
@@ -23,6 +22,10 @@ def printHelpAndExit() {
     System.exit(0);
 }
 
+ArrayList<Integer> getSubsampleReads(String subsample) {
+    return subsample.split(",").collect { String value -> value.trim() as Integer }
+}
+
 process Rasusa {
     
     tag { "$id: $subsample" }
@@ -33,7 +36,7 @@ process Rasusa {
     each subsample
 
     output:
-    tuple (val(id), path("${id}_${subsample}.fq.gz"), emit: reads)
+    tuple (val("${id}_${subsample}"), path("${id}_${subsample}.fq.gz"), emit: reads)
 
     script:
 
@@ -92,9 +95,14 @@ workflow {
     reads = Channel.fromPath(params.fastq) | map { file -> tuple(file.getSimpleName(), file) }
     references = Channel.fromPath(params.fasta)
 
+    ArrayList<Integer> subsample = getSubsampleReads(params.subsample);
+
     // Pipeline steps
-    Rasusa(reads, params.subsample)
+    Rasusa(reads, subsample)
     Nanoq(Rasusa.out.reads)
-    Minimap2(Nanoq.out.reads, references) | view
+    Minimap2(Nanoq.out.reads, references)
+
+    // Debug statement to check outputs
+    if (params.debug) Minimap2.out | view
 
 }
