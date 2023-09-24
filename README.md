@@ -4,7 +4,7 @@ Scaffold for demonstration in the Bioinformatics Clinic session (2023-09-25)
 
 ## Build stages
 
-I built the pipeline incrementally and commited at different stages, which are available as [branches of this repository](https://github.com/esteinig/nf-mvp/branches). Commit messages explain the main features and commit differences detail the [exact changes](https://github.com/esteinig/nf-mvp/commit/6d3c4bb2842377f3c0914d38ea0385ea818c50e2). All commits were merged into `main` with a final stage [pull request](https://github.com/esteinig/nf-mvp/pull/1).
+I built the pipeline incrementally and commited at different stages, which are available as [branches of this repository](https://github.com/esteinig/nf-mvp/branches). Commit messages explain the main features and commit differences detail the exact changes. All commits were merged into `main` with a final stage [pull request](https://github.com/esteinig/nf-mvp/pull/1).
 
 ## Directory structure
 
@@ -46,16 +46,37 @@ nextflow run nf-mvp/main.nf -profile test
 
 ## Repository execution
 
-With latest `Nextflow` installed:
+With latest `Nextflow` and `Conda` installed:
 
 ```
-nextflow run esteinig/nf-mvp -profile conda,test
+nextflow run -r 0.1.0 esteinig/nf-mvp -profile conda,test
 ```
 
 With `Mamba` environment installer instead of `Conda`:
 
 ```
-nextflow run esteinig/nf-mvp -profile conda,test --mamba
+nextflow run -r 0.1.0 esteinig/nf-mvp -profile conda,test --mamba
+```
+
+## Command-line parameter examples
+
+Ignoring other options for now, these are just some examples of how to use the workflow as a command-line application and parameterize its execution. All parameters used here are 
+specified in the `nextflow.config` file at the base of the repository.
+
+
+```bash
+# Specify different output directory
+nextflow run main.nf --outdir mvp-output
+
+# Specify different subsampling values
+nextflow run main.nf --subsample "100,50,10"
+
+# Target different input files - note that paths containing
+# wildcards must be wrapped in string quotation
+nextflow run main.nf --fastq "/path/to/reads/*.fq" --fasta "/path/to/refs/*.fa"
+
+# Provide resources for alignment process
+nextflow run main.nf --minimap2.cpus 16 --minimap2.memory "8 GB"
 ```
 
 ## Tips and tricks
