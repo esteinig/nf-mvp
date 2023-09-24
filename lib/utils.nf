@@ -5,7 +5,7 @@ def printHelpAndExit() {
     Minimum viable pipeline
     =======================
 
-    Lots of stuff going on
+    ${workflow.manifest.description} (v${workflow.manifest.version})
     """.stripIndent();
 
     System.exit(0);
