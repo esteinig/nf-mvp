@@ -1,0 +1,7 @@
+.nextflow/
+.nextflow.log*
+
+testing/
+mvp-test/
+mvp-result/
+work/
