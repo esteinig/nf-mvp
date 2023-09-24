@@ -2,6 +2,10 @@
 
 Scaffold for demonstration in the Bioinformatics Clinic session (2023-09-25)
 
+## Build stages
+
+I built the pipeline incrementally and commited at different stages, which are available as [branches of this repository](https://github.com/esteinig/nf-mvp/branches). Commit messages explain the main features and commit differences detail the exact changes. All commits were merged into `main` with a final stage [pull request](https://github.com/esteinig/nf-mvp/pull/1).
+
 ## Directory structure
 
 Directory structure for a modular Nextflow pipeline:
