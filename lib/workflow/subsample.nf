@@ -10,7 +10,8 @@ workflow subsample_aligner {
         samples                                 // integer reads 
     main:
         Rasusa(reads, samples) | Nanoq 
-        Minimap2(Nanoq.out.reads, references) | view
+        Minimap2(Nanoq.out.reads, references)
+        if (params.debug) Minimap2.out | view
     emit:
         reads = Nanoq.out.reads                 // string sample_id, path fastq
         alignments = Minimap2.out.alignment     // string sample_id, string ref_id, path paf
