@@ -8,15 +8,13 @@ workflow subsampleAligner {
         references
         subsamples
     main:
-
         // Pipeline steps
         Rasusa(reads, subsamples)
         Nanoq(Rasusa.out.reads)
         Minimap2(Nanoq.out.reads, references)
-
+        
         // Debug statement to check outputs
         if (params.debug) Minimap2.out | view
-
     emit:
         reads = Nanoq.out.reads
         alignment = Minimap2.out.alignment
