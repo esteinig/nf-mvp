@@ -20,6 +20,16 @@ Directory structure for a modular Nextflow pipeline:
 - `main.nf`: nextflow main entry script
 - `nextflow.config`: nextflow config file
 
+## Schematic
+
+Basic workflow for subsample - quality control - alignment of multiple samples against single reference.
+
+<img src="docs/BasicWorkflow.png" width="500">
+
+Basic workflow extended for multiple samples at multiple subsampling depths against multiple references.
+
+<img src="docs/MultipleWorkflow.png" width="700">
+
 ## Requirements
 
 `Conda` or `Mamba` installation.
