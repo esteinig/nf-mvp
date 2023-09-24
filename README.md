@@ -27,13 +27,13 @@ git clone https://github.com/esteinig/nf-mvp
 Install and activate environment:
 
 ```
-mamba env create -f env/conda.yml && conda activate nf-mvp
+mamba env create -f nf-mvp/env/conda.yml && conda activate nf-mvp
 ```
 
 Run the Nextflow with the `test` profile:
 
 ```
-nextflow run main.nf 
+nextflow run nf-mvp/main.nf -profile test
 ```
 
 ## Tips and tricks
