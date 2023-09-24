@@ -4,7 +4,7 @@ Scaffold for demonstration in the Bioinformatics Clinic session (2023-09-25)
 
 ## Build stages
 
-I built the pipeline incrementally and commited at different stages, which are available as [branches of this repository](https://github.com/esteinig/nf-mvp/branches). Commit messages explain the main features and commit differences detail the exact changes. All commits were merged into `main` with a final stage [pull request](https://github.com/esteinig/nf-mvp/pull/1).
+I built the pipeline incrementally and commited at different stages, which are available as [branches of this repository](https://github.com/esteinig/nf-mvp/branches). Commit messages explain the main features and commit differences detail the [exact changes](https://github.com/esteinig/nf-mvp/commit/6d3c4bb2842377f3c0914d38ea0385ea818c50e2). All commits were merged into `main` with a final stage [pull request](https://github.com/esteinig/nf-mvp/pull/1).
 
 ## Directory structure
 
