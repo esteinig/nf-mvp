@@ -1,19 +1,20 @@
 process Rasusa {
-
-    tag { "$id: $sample" }
-    publishDir "$params.outdir/subsample", mode: "symlink", pattern: "*.fq.gz"
+    
+    tag { "$id: $subsample" }
+    publishDir "$params.outdir/rasusa/$subsample", mode: "symlink", pattern: "*.fq.gz"
 
     input:
-    tuple val(id), path(fastq)
-    each sample
+    path(fastq)
+    each subsample
 
     output:
-    tuple (val("${id}_${sample}"), path("${id}_${sample}.fq.gz"), emit: reads)
+    tuple (val("${id}_${subsample}"), path("${id}_${subsample}.fq.gz"), emit: reads)
 
     script:
 
-    """
-    rasusa -i $fastq --num $sample -o ${id}_${sample}.fq.gz
-    """
+    id = fastq.getSimpleName();
 
+    """
+    rasusa -i $fastq --num $subsample -o ${id}_${subsample}.fq.gz
+    """
 }

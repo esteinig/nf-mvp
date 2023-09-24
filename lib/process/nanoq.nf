@@ -1,8 +1,8 @@
 process Nanoq {
 
     tag { "$id" }
-    publishDir "$params.outdir/read_qc", mode: "symlink", pattern: "${id}_qc.fq.gz"
-    publishDir "$params.outdir/read_qc", mode: "copy", pattern: "${id}.json"
+    publishDir "$params.outdir/nanoq", mode: "symlink", pattern: "*.fq.gz"
+    publishDir "$params.outdir/nanoq", mode: "copy", pattern: "*.json"
 
     input:
     tuple val(id), path(fastq)

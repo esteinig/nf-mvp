@@ -1,18 +1,21 @@
-include { Minimap2 } from "../process/minimap2.nf";
-include { Rasusa } from "../process/rasusa.nf";
-include { Nanoq } from "../process/nanoq.nf";
+include { Rasusa } from '../process/rasusa';
+include { Nanoq } from '../process/nanoq';
+include { Minimap2 } from '../process/minimap2';
 
-// Sub-workflow for read subsampling, quality control and alignment
-workflow subsample_aligner {
+workflow subsampleAligner {
     take:
-        reads                                   // string sample_id, path fastq
-        references                              // path fasta 
-        samples                                 // integer reads 
+        reads
+        references
+        subsamples
     main:
-        Rasusa(reads, samples) | Nanoq 
+        // Pipeline steps
+        Rasusa(reads, subsamples)
+        Nanoq(Rasusa.out.reads)
         Minimap2(Nanoq.out.reads, references)
+        
+        // Debug statement to check outputs
         if (params.debug) Minimap2.out | view
     emit:
-        reads = Nanoq.out.reads                 // string sample_id, path fastq
-        alignments = Minimap2.out.alignment     // string sample_id, string ref_id, path paf
+        reads = Nanoq.out.reads
+        alignment = Minimap2.out.alignment
 }

@@ -65,3 +65,11 @@ There are lots of different ways to do things, so these are highly opinionated t
 7. Tags with identifiers and parameters can be helpful in tracking progress on specific parameterized processes.
 
 8. Develop simple workflows from the ground up e.g. in `main.nf`, modularize when tested.
+
+
+## Dependencies
+
+- [`Nextflow`](https://github.com/nextflow-io/nextflow)
+- [`Rasusa`](https://github.com/mbhall88/rasusa)
+- [`Nanoq`](https://github.com/esteinig/nanoq)
+- [`minimap2`](https://github.com/lh3/minimap2)
