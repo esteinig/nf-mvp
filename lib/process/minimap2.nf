@@ -1,6 +1,7 @@
 
 process Minimap2 {
     
+    label "minimap2"
     tag { "$id: $ref" }
     publishDir "$params.outdir/minimap2/$ref", mode: "symlink", pattern: "*.paf"
 
@@ -16,6 +17,6 @@ process Minimap2 {
     ref = fasta.getSimpleName()
 
     """
-    minimap2 -cx map-ont $fasta $fastq > ${id}.${ref}.paf
+    minimap2 -t $task.cpus -cx map-ont $fasta $fastq > ${id}.${ref}.paf
     """
 }
