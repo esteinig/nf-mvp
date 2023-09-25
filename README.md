@@ -119,6 +119,12 @@ There are lots of different ways to do things, so these are highly opinionated t
 
 8. Develop simple workflows from the ground up e.g. in `main.nf`, modularize when tested.
 
+## Resources mentioned in clinic
+
+* Documentation: https://www.nextflow.io/docs/latest/getstarted.html and training excercises: https://training.nextflow.io/basic_training/ 
+* Slack channel for Nextflow: https://nextflow.slack.com/signup#/domain-signup and issues section for searching questions https://github.com/nextflow-io/nextflow/issues 
+* Running the workflow with the `-with-trace` parameter produces a trace file of the processes useful for debugging: https://www.nextflow.io/docs/latest/tracing.html#trace-report 
+* Nextflow Tower as a frontend / monitoring server for workflows: https://tower.nf/ 
 
 ## Dependencies
 
