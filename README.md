@@ -125,7 +125,7 @@ There are lots of different ways to do things, so these are highly opinionated t
 * Slack channel for Nextflow: https://nextflow.slack.com/signup#/domain-signup and issues section for searching questions https://github.com/nextflow-io/nextflow/issues 
 * Running the workflow with the `-with-trace` parameter produces a trace file of the processes useful for debugging: https://www.nextflow.io/docs/latest/tracing.html#trace-report 
 * Nextflow Tower as a frontend / monitoring server for workflows: https://tower.nf/ 
-
+* Nextflow pattern collection (may be outdated for some): https://nextflow-io.github.io/patterns/optional-input/ 
 ## Dependencies
 
 - [`Nextflow`](https://github.com/nextflow-io/nextflow)
