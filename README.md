@@ -97,7 +97,7 @@ There are lots of different ways to do things, so these are highly opinionated t
 
 1.  Assign a file-based identifier for input/output in all processes to keep track of the identity of the reads that are being processed.
 
-    File paths have useful methods like `getSimpleName()`: https://www.nextflow.io/docs/latest/script.html#check-file-attributes
+    File paths have useful methods like `getSimpleName()`: https://www.nextflow.io/docs/latest/script.html#getting-file-attributes
 
 2.  Be explicit in defining processes belonging to specific analysis modules.
     
