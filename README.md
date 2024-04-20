@@ -97,7 +97,7 @@ There are lots of different ways to do things, so these are highly opinionated t
 
 1.  Assign a file-based identifier for input/output in all processes to keep track of the identity of the reads that are being processed.
 
-    File paths have useful methods like `getSimpleName()`: https://www.nextflow.io/docs/latest/script.html#check-file-attributes
+    File paths have useful methods like `getSimpleName()`: https://www.nextflow.io/docs/latest/script.html#getting-file-attributes
 
 2.  Be explicit in defining processes belonging to specific analysis modules.
     
@@ -105,11 +105,11 @@ There are lots of different ways to do things, so these are highly opinionated t
     the input/output requirements of a module than defining a generalized process that relies
     on channel operations to receive the correct input or produce the correct outputs.
 
-3.  Channels and channel operators can be piped: https://www.nextflow.io/docs/latest/dsl2.html#pipes
+3.  Channels and channel operators can be piped: https://www.nextflow.io/docs/latest/workflow.html#pipe
 
-4.  Modularize workflows and processes into a library that can be reused: https://www.nextflow.io/docs/latest/dsl2.html#workflow 
+4.  Modularize workflows and processes into a library that can be reused: https://www.nextflow.io/docs/latest/workflow.html
 
-5.  Define named output channels for flexible and consistent output schemas: https://www.nextflow.io/docs/latest/dsl2.html#process-named-output 
+5.  Define named output channels for flexible and consistent output schemas: https://www.nextflow.io/docs/latest/workflow.html#process-named-outputs 
 
     For tuple outputs with named emission use the parentheses pattern: `tuple (val(id), path("filtered.fq"), emit: reads)`
 
